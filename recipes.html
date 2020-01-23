@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Recipes</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #f9cb9cff;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			}
+
+		li {
+			float: left;
+			}
+
+		li a {
+			display: block;
+			color: #85200c;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			}
+
+		li a:hover:not(.active) {
+			background-color: #85200c;
+			color: white;
+			text-decoration: none;
+			}
+
+		img {
+			width: 50px;
+			float: left;
+			margin-right: 30px;
+			}
+
+		#current {
+			background-color: #85200c;
+			color: white;
+			font-weight: bold;
+			}
+		.header {
+			position: fixed;
+			z-index: -1;
+			width: 100%;
+			background-color: #f9cb9cff;
+			padding: 100px;
+			text-align: center;
+			font-family: monospace;
+			}
+		.content {
+			background-color: white; 
+			margin-top: 345px;
+			padding: 0px;
+			position: static;
+			}
+		#title {
+			font-family: fantasy;
+			font-size: 60px;
+			color: #85200c;
+			}
+		.rec {
+			padding: 5px;
+			overflow: auto;
+			width: 250px;
+			display: block;
+			margin: auto;
+			}
+		#yourOwn {
+			font-family: fantasy;
+			font-size: 30px;
+			color: #85200c;
+			text-align: center;
+			}
+		.addDiv {
+			padding: 5px;
+			overflow: auto;
+			width: 250px;
+			display: block;
+			margin: auto;
+			}
+		.addForm {
+			overflow: auto;
+			display: block;
+			text-align: center;
+			margin: auto;
+			border-radius: 10px;
+			border-color: #f9cb9cff;
+			border-width: 3px;
+			margin-top: 3px;
+			}
+	</style>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a id="current" href="/recipes">Recipes</a></li>
+		<li><a href="/uri">Uri</a></li>
+		<li><a href="/admin">Admin</a></li>
+	</ul>
+	<br>
+	<br>
+	<div class="header">
+		<h1 id="title">Recipes</h1>
+		<h2 style="font-size: 20px"><b>Get exposed to the users' favorite recipes for their pannekoeken</h2>
+	</div>
+
+	<div class="content">
+		<div class="addDiv">
+			<form action="/recipes" method="POST">
+				<h1 id="yourOwn">Add Your Own Recipe!</h1>
+				<input type="text" name="creator" placeholder="Creator" class="addForm">
+				<input type="text" name="syrop" placeholder="Syrup" class="addForm">
+				<input type="text" name="topping" placeholder="Topping" class="addForm">
+				<p style="font-size: 20px; font-family: cursive; color: #ffffff; padding-top: 5px;" align="center">
+					<button type="submit" value="Submit" style="border: none; background-color: #85200c; width: 100px; border-radius: 10px;">
+				add</button></p>
+			</form>
+		</div>
+
+
+		<br>
+		<br>
+		<br>
+		{% for r in recipes %}
+
+			<h1 style="color: #85200c; font-family: fantasy;" align="center">
+			{{r.creator}}</h1>
+			<div class="rec">
+				<img src="static/maple-syrup.png">
+				<h3 style="font-family: monospace;">{{r.syrop}}</h3>
+			</div>
+			<div class="rec">
+				<img src="static/cupcake.png">
+				<h3 style="font-family: monospace;">{{r.topping}}</h3>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+		{% endfor %}
+	</div>
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
+
+</body>
+
+</html>
