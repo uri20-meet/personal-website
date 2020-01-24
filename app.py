@@ -7,7 +7,12 @@ app.secret_key = "MY_SUPER_SECRET_KEY"
 
 @app.route('/', methods=['GET' , 'POST'])
 def homepage():
-	return render_template("home.html")
+	if request.method == 'GET':
+		return render_template("home.html")
+	else:
+		deleted = request.form['deleted']
+		delete_by_id(deleted)
+		return render_template("home.html")
 
 
 @app.route('/uri', methods=['GET' , 'POST'])
@@ -33,12 +38,13 @@ def recipes():
 def admin():
 	if request.method == 'GET':
 		recipes = get_all_recipes()
-		return render_template("admin.html", recipes = recipes)
+		return render_template("login.html", recipes = recipes)
 	else:
-		deleted = request.form['deleted']
-		delete_by_id(deleted)
 		recipes = get_all_recipes()
-		return render_template("admin.html", recipes = recipes)
+		psw = request.form['psw']
+		if psw == 'admin123':
+			return render_template("admin.html", recipes = recipes)
+		return render_template("login.html", recipes = recipes)
 
 # @app.route('/store')
 # def store():

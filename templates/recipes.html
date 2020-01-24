@@ -15,6 +15,7 @@
 			position: fixed;
 			top: 0;
 			width: 100%;
+			font-family: monospace;
 			}
 
 		li {
@@ -27,12 +28,15 @@
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
+			border-radius: 40px;
+			transition: 0.5s;
 			}
 
 		li a:hover:not(.active) {
 			background-color: #85200c;
 			color: white;
 			text-decoration: none;
+			border-radius: 0;
 			}
 
 		img {
@@ -45,6 +49,7 @@
 			background-color: #85200c;
 			color: white;
 			font-weight: bold;
+			border-radius: 0;
 			}
 		.header {
 			position: fixed;
@@ -96,6 +101,17 @@
 			border-width: 3px;
 			margin-top: 3px;
 			}
+		#addButton {
+			border: none; 
+			background-color: #85200c; 
+			width: 100px; 
+			border-radius: 20px;
+			transition: width 1s;
+		}
+		#addButton:hover { 
+			width: 175px; 
+			border-radius: 10px;
+		}
 	</style>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -120,14 +136,15 @@
 	</div>
 
 	<div class="content">
+
 		<div class="addDiv">
 			<form action="/recipes" method="POST">
 				<h1 id="yourOwn">Add Your Own Recipe!</h1>
-				<input type="text" name="creator" placeholder="Creator" class="addForm">
-				<input type="text" name="syrop" placeholder="Syrup" class="addForm">
-				<input type="text" name="topping" placeholder="Topping" class="addForm">
+				<input type="text" name="creator" placeholder="Creator" class="addForm" required>
+				<input type="text" name="syrop" placeholder="Syrup" class="addForm" required>
+				<input type="text" name="topping" placeholder="Topping" class="addForm" required>
 				<p style="font-size: 20px; font-family: cursive; color: #ffffff; padding-top: 5px;" align="center">
-					<button type="submit" value="Submit" style="border: none; background-color: #85200c; width: 100px; border-radius: 10px;">
+					<button id="addButton" type="submit" value="Submit">
 				add</button></p>
 			</form>
 		</div>
@@ -153,6 +170,7 @@
 			<br>
 			<br>
 		{% endfor %}
+	
 	</div>
 
 

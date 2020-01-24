@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Pannekoeken</title>
+	<title>Admin</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<style type="text/css">
 
@@ -15,6 +15,7 @@
 			position: fixed;
 			top: 0;
 			width: 100%;
+			font-family: monospace;
 			}
 
 		li {
@@ -27,40 +28,89 @@
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
+			border-radius: 40px;
+			transition: 0.5s;
 			}
 
 		li a:hover:not(.active) {
 			background-color: #85200c;
 			color: white;
 			text-decoration: none;
+			border-radius: 0;
 			}
 
 		#current {
 			background-color: #85200c;
 			color: white;
 			font-weight: bold;
+			border-radius: 0;
 			}
-		.header {
-			position: fixed;
-			z-index: -1;
-			background-color: #f9cb9cff;
-			padding-top: 200px;
-			padding-bottom: 200px;
-			text-align: center;
-			font-family: monospace;
-			width: 100%
-			}
-		#title {
-			font-family: fantasy;
-			font-size: 100px;
-			color: #85200c;
-			}
+
 		.content {
 			background-color: white; 
-			margin-top: 593px;
+			margin-top: 150px;
 			padding: 0px;
 			position: static;
 			}
+
+		/* Full-width inputs */
+		input {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: block;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+			transition: border-radius 0.5s;
+			border-radius: 25px;
+			}
+
+		input:hover {
+
+			border-radius: 0px;
+			}
+
+		/* Set a style for all buttons */
+		button {
+			background-color: #85200c;
+			color: white;
+			padding: 10px 20px;
+			margin: 10px 0;
+			border: none;
+			width: 100%;
+			text-decoration-color: white;
+			transition: border-radius 0.5s;
+			border-radius: 25px;
+			}
+
+		/* Add a hover effect for buttons */
+		button:hover {
+			opacity: 0.8;
+			border-radius: 0px;
+			}
+
+		/* Center the avatar image inside this container */
+		.imgcontainer {
+			text-align: center;
+			margin: 24px 0 12px 0;
+			}
+
+		/* Avatar image */
+		img.avatar {
+			width: 10%;
+			}
+
+		/* Add padding to containers */
+		.container {
+			padding: 16px;
+			}
+
+		/* The "Forgot password" text */
+		span.psw {
+			float: right;
+			padding-top: 16px;
+			}
+
 	</style>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,63 +122,28 @@
 <body>
 
 	<ul>
-		<li><a id="current" href="/">Home</a></li>
+		<li><a href="/">Home</a></li>
 		<li><a href="/recipes">Recipes</a></li>
 		<li><a href="/uri">Uri</a></li>
-		<li><a href="/admin">Admin</a></li>
+		<li><a id="current" href="/admin">Admin</a></li>
 	</ul>
-	<br>
-	<br>
-	<div class="header">
-		<h1 id="title">Pannekoeken</h1>
-		<h2 style="font-size: 30px"><b>The Official Website</h2>
-		<img src="static/hollandFlag.jpg" style="display: block; margin: auto; height: 10px;">
-	</div>
-
-
 	<div class="content">
-		<br>
-		<br>
-		<br>
-		<img src="static/panPic.jpg" style="display: block; margin: auto;">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-	</div>
 
+		<form action="/admin" method="POST">
+			<div class="imgcontainer">
+				<img src="static/avatar.png" alt="Avatar" class="avatar">
+			</div>
+
+			<div class="container">
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+				<br>
+				<button type="submit" value="Submit" style="font-size: 20px;color: white; font-family: monospace;">
+					<b>Login</b></button>
+			</div>
+		
+		</form>
+	</div>
 
 
 
