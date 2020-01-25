@@ -44,8 +44,9 @@ def admin():
 		psw = request.form['psw']
 		if psw == 'admin123':
 			return render_template("admin.html", recipes = recipes)
-		return render_template("login.html", recipes = recipes)
-
+		else:
+			return render_template("login.html", recipes = recipes, wrongP = True)
+		
 # @app.route('/store')
 # def store():
 # 	products = get_all_products()
